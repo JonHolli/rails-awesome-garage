@@ -1,0 +1,11 @@
+<h1><%= @car.brand %></h1>
+<h2><%= @car.model %></h2>
+<h3><%= @car.year %></h3>
+<p><%= @car.fuel %><p>
+
+<%= simple_form_for [@car, @review] do |f| %>
+<%= f.input :comment %>
+<%= f.rating :rating, collection: 0..5 %>
+<%= f.submit %>
+
+<%= end %>
