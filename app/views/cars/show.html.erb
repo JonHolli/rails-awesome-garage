@@ -5,6 +5,16 @@
 
 <hr>
 
+<% if @car.favourites %>
+  <%= simple_form_for [@car, @favourite] do |f| %>
+    <%= f.submit "Add in my garage" %>
+  <% end %>
+<% else %>
+  <p>This car is parked in your garage!</p>
+<% end %>
+
+<hr>
+
 <%= simple_form_for [@car, @review] do |f| %>
   <%= f.input :comment %>
   <%= f.input :rating, collection: 0..5 %>
@@ -15,5 +25,4 @@
 
 <% @car.reviews.each do |review| %>
   <p>Comment: <%= review.comment %> | Rating: <%= review.rating %></p>
-
 <% end %>
